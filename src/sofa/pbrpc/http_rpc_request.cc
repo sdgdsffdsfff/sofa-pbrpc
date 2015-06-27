@@ -254,8 +254,6 @@ bool HTTPRpcRequest::ParsePath()
     _decoded_path = StringUtils::decode_url(_path,
             (StringUtils::E_DECODE_RESERVED_CHAR | StringUtils::E_DECODE_PERCENT_SIGN_CHAR));
 #if defined( LOG )
-        LOG(DEBUG) << "ParsePath(): path=[" << _path << "]"
-                   << ", decoded_path=[" << _decoded_path << "]";
 #else
         SLOG(DEBUG, "ParsePath(): path=[%s], decoded_path=[%s]",
                 _path.c_str(), _decoded_path.c_str());
@@ -555,7 +553,7 @@ void HTTPRpcRequest::ServiceList(
         << "<tr>"
         << "<th rowspan=\"2\" align=\"left\">Name</th>"
         << "<th colspan=\"3\" align=\"center\">Stat in last second</th>"
-        << "<th colspan=\"3\" align=\"center\">Stat in last minite</th>"
+        << "<th colspan=\"3\" align=\"center\">Stat in last minute</th>"
         << "</tr>"
         << "<tr>"
         << "<th align=\"right\">Requested</th><th align=\"right\">Succeed</th><th align=\"right\">Failed</th>"
@@ -594,7 +592,7 @@ void HTTPRpcRequest::MethodList(
         << "<tr>"
         << "<th rowspan=\"3\" align=\"left\">Name</th>"
         << "<th colspan=\"6\" align=\"center\">Stat in last second</th>"
-        << "<th colspan=\"6\" align=\"center\">Stat in last minite</th>"
+        << "<th colspan=\"6\" align=\"center\">Stat in last minute</th>"
         << "</tr>"
         << "<tr>"
         << "<th colspan=\"3\" align=\"center\">Succeed</th>"
